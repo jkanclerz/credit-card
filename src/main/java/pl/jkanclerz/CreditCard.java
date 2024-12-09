@@ -22,6 +22,10 @@ public class CreditCard {
             throw new IllegalStateException();
         }
 
+        limitAssigned(amount);
+    }
+
+    private void limitAssigned(BigDecimal amount) {
         this.limit = amount;
     }
 
@@ -38,6 +42,10 @@ public class CreditCard {
             throw new IllegalStateException();
         }
 
+        cardWithdrawn(amount);
+    }
+
+    private void cardWithdrawn(BigDecimal amount) {
         this.usedLimit = this.usedLimit.add(amount);
         this.withdrawals++;
     }
